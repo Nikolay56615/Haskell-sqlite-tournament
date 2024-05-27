@@ -29,7 +29,7 @@ executeSomeQueries (categories, manufacturers, materials, products) = do
   test "lecPlan2" lecPlan2
   test "lecPlan3" lecPlan3
   test "lecPlan4" lecPlan4
-  test "lecPlan4'" lecPlan4'
+  test "ex1" ex1
   test "ex2" ex2
   test "ex3" ex3
   
@@ -101,7 +101,7 @@ executeSomeQueries (categories, manufacturers, materials, products) = do
       -- -> TAKE 10
       & limit 0 10
   
-    lecPlan4' = 
+    ex1 = 
       ((categories // "c" `indexby` col "WARE" & flatten) `wher` col "CLASS" `eq` str "Mineral"
       `hjoin` (materials // "m" `indexby` col "WARE") `on` col "c.WARE"
       `hjoin` (products // "p" `indexby` col "BILL_ID") `on` col "m.BILL_ID"
